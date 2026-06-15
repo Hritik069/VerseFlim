@@ -133,9 +133,9 @@ export default function Footer() {
             className="md:col-span-3 flex flex-col items-start gap-4 font-mono text-[8px] tracking-[0.25em] text-[rgba(255,255,255,0.82)] font-bold"
             style={{ textShadow: '0 0 12px rgba(255,255,255,0.04)' }}
           >
-            <span className="hover:text-white transition-colors duration-300 pointer-events-auto cursor-none" data-cursor="Lab">[ CINEMA_LAB ]</span>
-            <span className="hover:text-white transition-colors duration-300 pointer-events-auto cursor-none" data-cursor="System">[ FRAME_SYSTEM ]</span>
-            <span className="hover:text-white transition-colors duration-300 pointer-events-auto cursor-none" data-cursor="Archive">[ VISUAL_ARCHIVE_01 ]</span>
+            <span className="hover:text-white transition-colors duration-300 pointer-events-auto">[ CINEMA_LAB ]</span>
+            <span className="hover:text-white transition-colors duration-300 pointer-events-auto">[ FRAME_SYSTEM ]</span>
+            <span className="hover:text-white transition-colors duration-300 pointer-events-auto">[ VISUAL_ARCHIVE_01 ]</span>
           </div>
 
           {/* Right Micro Copy */}
@@ -202,8 +202,7 @@ export default function Footer() {
               {/* Back to Top */}
               <button
                 onClick={handleScrollToTop}
-                className="flex items-center gap-2 border border-white/10 hover:border-white/20 rounded-full px-4 py-1.5 transition-all duration-500 lg:cursor-none bg-white/[0.02] hover:bg-white/[0.06] group text-[#e2e8f0] pointer-events-auto"
-                data-cursor="Top"
+                className="flex items-center gap-2 border border-white/10 hover:border-white/20 rounded-full px-4 py-1.5 transition-all duration-500 bg-white/[0.02] hover:bg-white/[0.06] group text-[#e2e8f0] pointer-events-auto"
               >
                 <span>Back to Top</span>
                 <ArrowUp 

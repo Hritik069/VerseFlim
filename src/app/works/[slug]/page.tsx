@@ -199,165 +199,77 @@ function GalleryVideo({ src, poster, caption }: { src: string; poster: string; c
   );
 }
 
-// 15 portrait fitness reels for the Gym Campaign
+// 6 Cloudinary fitness reels for the Gym Campaign
 const gymReelsData = [
   {
     id: 1,
-    title: 'REEL 01 / 15',
-    duration: '0:30',
-    label: 'ASCEND PERFORMANCE',
-    src: 'https://res.cloudinary.com/dsvedhehi/video/upload/v1781445978/PITAMPURA_11_MARCH_3_rxmzep.mov',
-    poster: '/images/ChatGPT Image Jun 13, 2026, 07_50_21 PM.png',
-    subtitle: 'THE THRESHOLD',
+    title: "Vault Rohini — March 02",
+    src: "https://res.cloudinary.com/dsvedhehi/video/upload/f_mp4,q_auto/v1781511239/Vault_rohini_2_MARCH_2_lkcz0a.mov",
   },
   {
     id: 2,
-    title: 'REEL 02 / 15',
-    duration: '0:35',
-    label: 'ASCEND PERFORMANCE',
-    src: 'https://assets.mixkit.co/videos/preview/mixkit-woman-running-on-a-treadmill-40150-large.mp4',
-    poster: '/images/verse_film_mountain.png',
-    subtitle: 'REPETITION',
+    title: "Vault Pitampura 01",
+    src: "https://res.cloudinary.com/dsvedhehi/video/upload/f_mp4,q_auto/v1781511271/VAULT_PITAMPURA_1_soni14.mp4",
   },
   {
     id: 3,
-    title: 'REEL 03 / 15',
-    duration: '0:30',
-    label: 'ASCEND PERFORMANCE',
-    src: 'https://assets.mixkit.co/videos/preview/mixkit-boxer-practicing-punches-in-a-dimly-lit-gym-42617-large.mp4',
-    poster: '/images/ChatGPT Image Jun 13, 2026, 07_16_04 PM.png',
-    subtitle: 'RAW FORCE',
+    title: "Vault Rohini — March 24",
+    src: "https://res.cloudinary.com/dsvedhehi/video/upload/f_mp4,q_auto/v1781511253/VAULT_ROHINI_24_MARCH_2_fohaij.mov",
   },
   {
     id: 4,
-    title: 'REEL 04 / 15',
-    duration: '0:28',
-    label: 'ASCEND PERFORMANCE',
-    src: 'https://assets.mixkit.co/videos/preview/mixkit-young-woman-doing-yoga-outdoors-in-the-morning-42284-large.mp4',
-    poster: '/images/verse_film_mountain.png',
-    subtitle: 'FOCUS / BALANCE',
+    title: "Vault Rohini 04",
+    src: "https://res.cloudinary.com/dsvedhehi/video/upload/f_mp4,q_auto/v1781511268/VAULT_ROHINI_4_hhuwdq.mp4",
   },
   {
     id: 5,
-    title: 'REEL 05 / 15',
-    duration: '0:32',
-    label: 'ASCEND PERFORMANCE',
-    src: 'https://assets.mixkit.co/videos/preview/mixkit-man-doing-pushups-on-a-fitness-mat-42289-large.mp4',
-    poster: '/images/ChatGPT Image Jun 13, 2026, 07_50_21 PM.png',
-    subtitle: 'GRAVITATIONAL WEIGHT',
+    title: "Vault Rohini — May 22",
+    src: "https://res.cloudinary.com/dsvedhehi/video/upload/f_mp4,q_auto/v1781511253/VAULT_ROHINI_22_MAY_1_1_z5agyx.mp4",
   },
   {
     id: 6,
-    title: 'REEL 06 / 15',
-    duration: '0:30',
-    label: 'ASCEND PERFORMANCE',
-    src: 'https://assets.mixkit.co/videos/preview/mixkit-female-athlete-doing-stretching-exercises-42294-large.mp4',
-    poster: '/images/ChatGPT Image Jun 13, 2026, 07_16_04 PM.png',
-    subtitle: 'TENSION / MOTION',
+    title: "Vault Dwarka Sec 7",
+    src: "https://res.cloudinary.com/dsvedhehi/video/upload/f_mp4,q_auto/v1781511373/vault_dwarka_sec_7_CC_df0tnt.mov",
   },
-  {
-    id: 7,
-    title: 'REEL 07 / 15',
-    duration: '0:35',
-    label: 'ASCEND PERFORMANCE',
-    src: 'https://assets.mixkit.co/videos/preview/mixkit-woman-doing-plank-exercise-in-a-sunny-room-40153-large.mp4',
-    poster: '/images/verse_film_mountain.png',
-    subtitle: 'ISOMETRIC HOLD',
-  },
-  {
-    id: 8,
-    title: 'REEL 08 / 15',
-    duration: '0:40',
-    label: 'ASCEND PERFORMANCE',
-    src: 'https://assets.mixkit.co/videos/preview/mixkit-young-man-running-on-the-beach-in-the-morning-41558-large.mp4',
-    poster: '/images/ChatGPT Image Jun 13, 2026, 07_50_21 PM.png',
-    subtitle: 'THE RIDGE RUN',
-  },
-  {
-    id: 9,
-    title: 'REEL 09 / 15',
-    duration: '0:30',
-    label: 'ASCEND PERFORMANCE',
-    src: 'https://res.cloudinary.com/dsvedhehi/video/upload/v1781445978/PITAMPURA_11_MARCH_3_rxmzep.mov',
-    poster: '/images/ChatGPT Image Jun 13, 2026, 07_16_04 PM.png',
-    subtitle: 'ENDURANCE',
-  },
-  {
-    id: 10,
-    title: 'REEL 10 / 15',
-    duration: '0:35',
-    label: 'ASCEND PERFORMANCE',
-    src: 'https://assets.mixkit.co/videos/preview/mixkit-woman-running-on-a-treadmill-40150-large.mp4',
-    poster: '/images/verse_film_mountain.png',
-    subtitle: 'MINDSET',
-  },
-  {
-    id: 11,
-    title: 'REEL 11 / 15',
-    duration: '0:30',
-    label: 'ASCEND PERFORMANCE',
-    src: 'https://assets.mixkit.co/videos/preview/mixkit-boxer-practicing-punches-in-a-dimly-lit-gym-42617-large.mp4',
-    poster: '/images/ChatGPT Image Jun 13, 2026, 07_50_21 PM.png',
-    subtitle: 'VELOCITY',
-  },
-  {
-    id: 12,
-    title: 'REEL 12 / 15',
-    duration: '0:28',
-    label: 'ASCEND PERFORMANCE',
-    src: 'https://assets.mixkit.co/videos/preview/mixkit-young-woman-doing-yoga-outdoors-in-the-morning-42284-large.mp4',
-    poster: '/images/verse_film_mountain.png',
-    subtitle: 'FLEXIBILITY',
-  },
-  {
-    id: 13,
-    title: 'REEL 13 / 15',
-    duration: '0:32',
-    label: 'ASCEND PERFORMANCE',
-    src: 'https://assets.mixkit.co/videos/preview/mixkit-man-doing-pushups-on-a-fitness-mat-42289-large.mp4',
-    poster: '/images/ChatGPT Image Jun 13, 2026, 07_16_04 PM.png',
-    subtitle: 'STABILITY',
-  },
-  {
-    id: 14,
-    title: 'REEL 14 / 15',
-    duration: '0:30',
-    label: 'ASCEND PERFORMANCE',
-    src: 'https://assets.mixkit.co/videos/preview/mixkit-female-athlete-doing-stretching-exercises-42294-large.mp4',
-    poster: '/images/verse_film_mountain.png',
-    subtitle: 'MOMENTUM',
-  },
-  {
-    id: 15,
-    title: 'REEL 15 / 15',
-    duration: '0:35',
-    label: 'ASCEND PERFORMANCE',
-    src: 'https://assets.mixkit.co/videos/preview/mixkit-woman-doing-plank-exercise-in-a-sunny-room-40153-large.mp4',
-    poster: '/images/ChatGPT Image Jun 13, 2026, 07_50_21 PM.png',
-    subtitle: 'EXERTION',
-  }
 ];
+
+// Helper to generate a dynamic poster URL from Cloudinary video sources
+const getPosterUrl = (src: string) => {
+  return src
+    .replace(/\.(mov|mp4)$/i, '.jpg')
+    .replace('/upload/f_mp4,q_auto/', '/upload/f_auto,q_auto/')
+    .replace('/upload/', '/upload/so_0/');
+};
 
 // Luxury minimal portfolio grid card for Gym Reels
 const GymReelCard = memo(function GymReelCard({
   reel,
   index,
   isHovered,
-  isUnmuted,
+  isMuted,
+  videoRef,
   onHoverChange,
-  onSoundToggle,
+  onMuteToggle,
 }: {
   reel: typeof gymReelsData[0];
   index: number;
   isHovered: boolean;
-  isUnmuted: boolean;
+  isMuted: boolean;
+  videoRef: (el: HTMLVideoElement | null) => void;
   onHoverChange: (index: number | null) => void;
-  onSoundToggle: (index: number) => void;
+  onMuteToggle: () => void;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const localVideoRef = useRef<HTMLVideoElement | null>(null);
   const [isIntersecting, setIsIntersecting] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [duration, setDuration] = useState<string>('');
+  const [hasError, setHasError] = useState(false);
+
+  // Sync ref to parent dynamically
+  const setRefs = useCallback((node: HTMLVideoElement | null) => {
+    localVideoRef.current = node;
+    videoRef(node);
+  }, [videoRef]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -372,115 +284,131 @@ const GymReelCard = memo(function GymReelCard({
     return () => observer.disconnect();
   }, []);
 
+  // Sync volume & mute properties when isMuted changes
   useEffect(() => {
-    const video = videoRef.current;
+    const video = localVideoRef.current;
     if (video) {
-      video.muted = !isUnmuted;
+      video.muted = isMuted;
+      video.defaultMuted = isMuted;
+      video.volume = isMuted ? 0 : 1;
     }
-  }, [isUnmuted]);
+  }, [isMuted]);
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
+    const video = localVideoRef.current;
+    if (!video || hasError) return;
 
     if (isHovered) {
       video.currentTime = 0;
+      video.muted = isMuted;
+      
       const playPromise = video.play();
       if (playPromise !== undefined) {
         playPromise
           .then(() => {
-            setIsPlaying(true);
+            // Video playing
           })
           .catch((err) => {
             console.warn("Playback failed or was interrupted:", err);
-            setIsPlaying(false);
           });
-      } else {
-        setIsPlaying(true);
       }
     } else {
       video.pause();
       video.currentTime = 0;
-      setIsPlaying(false);
     }
-  }, [isHovered]);
+  }, [isHovered, hasError]);
+
+  const handleLoadedMetadata = () => {
+    const video = localVideoRef.current;
+    if (video && video.duration) {
+      const minutes = Math.floor(video.duration / 60);
+      const seconds = Math.floor(video.duration % 60);
+      setDuration(`${minutes}:${seconds < 10 ? '0' : ''}${seconds}`);
+    }
+  };
+
+  const handleVideoError = useCallback((e: any) => {
+    console.warn(`Source codec is unsupported or video failed to load for: ${reel.title}. URL: ${reel.src}`, e);
+    setHasError(true);
+  }, [reel.title, reel.src]);
+
+  const posterUrl = getPosterUrl(reel.src);
 
   return (
     <div
       ref={containerRef}
       onMouseEnter={() => onHoverChange(index)}
       onMouseLeave={() => onHoverChange(null)}
-      className="relative w-full aspect-[9/16] bg-[#f5f5f3] rounded-[16px] overflow-hidden select-none will-change-transform group flex items-center justify-center"
+      className="relative w-full aspect-[9/16] bg-zinc-950 rounded-[16px] overflow-hidden select-none will-change-transform group flex items-center justify-center cursor-pointer"
       style={{
-        transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
+        transition: 'transform 300ms cubic-bezier(0.25, 1, 0.5, 1), box-shadow 300ms cubic-bezier(0.25, 1, 0.5, 1)',
+        transform: isHovered ? 'scale(1.02)' : 'scale(1)',
         boxShadow: isHovered 
-          ? '0 12px 40px rgba(28, 36, 45, 0.04)' 
-          : '0 4px 20px rgba(28, 36, 45, 0.015)',
-        transform: isHovered ? 'scale(1.015)' : 'scale(1)',
-        filter: isHovered ? 'brightness(1.03)' : 'brightness(1)',
+          ? '0 12px 30px rgba(0, 0, 0, 0.15)' 
+          : '0 4px 10px rgba(0, 0, 0, 0.05)',
         backfaceVisibility: 'hidden',
       }}
     >
-      {/* Lazy Loaded Video Preview */}
-      {isIntersecting && (
+      {/* Lazy Loaded Video or Fallback Image */}
+      {isIntersecting && !hasError ? (
         <video
-          ref={videoRef}
-          src={reel.src}
+          ref={setRefs}
           playsInline
           loop
           preload="metadata"
-          className="absolute inset-0 w-full h-full object-contain bg-[#f5f5f3] rounded-[16px] pointer-events-none will-change-opacity"
-          style={{
-            opacity: isHovered && isPlaying ? 0.85 : 0,
-            transition: 'opacity 200ms cubic-bezier(0.25, 1, 0.5, 1)',
-            transform: 'translate3d(0, 0, 0)',
-          }}
+          muted={isMuted}
+          controlsList="nodownload noplaybackrate nofullscreen"
+          disablePictureInPicture
+          poster={posterUrl}
+          onLoadedMetadata={handleLoadedMetadata}
+          onError={handleVideoError}
+          className="absolute inset-0 w-full h-full object-cover rounded-[16px] pointer-events-none"
+        >
+          <source src={reel.src} onError={handleVideoError} />
+        </video>
+      ) : (
+        <img
+          src={posterUrl}
+          alt={reel.title}
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover rounded-[16px] pointer-events-none"
         />
       )}
 
-      {/* Poster Image (cross-fades if video is not ready/loaded) */}
-      <img
-        src={reel.poster}
-        alt={reel.subtitle}
-        className="absolute inset-0 w-full h-full object-contain bg-[#f5f5f3] rounded-[16px] z-0 pointer-events-none will-change-opacity"
-        style={{
-          opacity: isHovered && isPlaying ? 0 : 0.85,
-          transition: 'opacity 200ms cubic-bezier(0.25, 1, 0.5, 1)',
-          transform: 'translate3d(0, 0, 0)',
-        }}
-        loading="lazy"
-      />
+      {/* Subtle Black Gradient Overlay from bottom */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none z-10 rounded-[16px]" />
 
       {/* Minimal animated speaker icon in bottom-right corner */}
       <button
         onClick={(e) => {
           e.stopPropagation();
-          onSoundToggle(index);
+          onMuteToggle();
         }}
-        className="absolute bottom-5 right-5 z-20 w-7 h-7 rounded-full flex items-center justify-center border border-black/10 hover:border-black/30 bg-white/40 hover:bg-white/80 backdrop-blur-md text-black/60 hover:text-black transition-all duration-300 ease-out lg:opacity-0 lg:translate-y-1 lg:pointer-events-none group-hover:lg:opacity-100 group-hover:lg:translate-y-0 group-hover:lg:pointer-events-auto active:scale-90"
-        aria-label={isUnmuted ? "Mute audio" : "Unmute audio"}
+        className="absolute bottom-4 right-4 z-20 w-7 h-7 rounded-full flex items-center justify-center border border-white/10 bg-black/40 hover:bg-black/60 backdrop-blur-md text-white transition-all duration-300 ease-out lg:opacity-0 lg:translate-y-1 lg:pointer-events-none group-hover:lg:opacity-100 group-hover:lg:translate-y-0 group-hover:lg:pointer-events-auto active:scale-90"
+        aria-label={isMuted ? "Unmute audio" : "Mute audio"}
       >
-        {isUnmuted ? (
-          <Volume2 className="w-3.5 h-3.5 text-black transition-transform duration-300" />
+        {!isMuted ? (
+          <Volume2 className="w-3.5 h-3.5 text-white transition-transform duration-300" />
         ) : (
-          <VolumeX className="w-3.5 h-3.5 text-black/60 transition-transform duration-300" />
+          <VolumeX className="w-3.5 h-3.5 text-white/70 transition-transform duration-300" />
         )}
       </button>
 
-      {/* Metadata headers */}
-      <div className="absolute top-4 left-4 right-4 flex justify-between items-center text-[#1c242d]/50 font-mono text-[8px] uppercase tracking-widest z-20">
-        <span>{reel.title}</span>
-        <span>{reel.duration}</span>
-      </div>
-
-      {/* Subtitles (Left) */}
-      <div className="absolute bottom-4 left-4 flex flex-col gap-0.5 text-left z-20 text-[#1c242d]">
-        <span className="font-poppins text-[7px] font-bold tracking-[0.2em] text-[#1c242d]/45 uppercase">
-          {reel.label}
-        </span>
-        <h3 className="font-syne text-[11px] font-extrabold uppercase tracking-wide leading-none text-[#1c242d]">
-          {reel.subtitle}
-        </h3>
+      {/* Title & Duration Overlay */}
+      <div className="absolute bottom-4 left-4 right-4 z-20 flex justify-between items-end pointer-events-none text-white select-none">
+        <div className="flex flex-col gap-0.5 text-left">
+          <span className="font-poppins text-[8px] font-bold tracking-[0.25em] text-white/50 uppercase">
+            REEL 0{index + 1}
+          </span>
+          <h3 className="font-syne text-[10px] font-extrabold uppercase tracking-wide leading-none text-white/90">
+            {reel.title}
+          </h3>
+        </div>
+        {duration && (
+          <span className="font-mono text-[9px] text-white/60 tracking-wider">
+            {duration}
+          </span>
+        )}
       </div>
     </div>
   );
@@ -488,15 +416,27 @@ const GymReelCard = memo(function GymReelCard({
 
 // Gym Reels Archive Page Main Render
 function GymReelsArchive() {
-  const [unmutedReelIndex, setUnmutedReelIndex] = useState<number | null>(null);
+  const [isMuted, setIsMuted] = useState(true);
   const [hoveredReelIndex, setHoveredReelIndex] = useState<number | null>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   const handleHoverChange = useCallback((index: number | null) => {
     setHoveredReelIndex(index);
   }, []);
 
-  const handleSoundToggle = useCallback((index: number) => {
-    setUnmutedReelIndex((prev) => (prev === index ? null : index));
+  const handleMuteToggle = useCallback(() => {
+    setIsMuted((prevMute) => {
+      const newMute = !prevMute;
+      // Immediately update all currently mounted video elements
+      videoRefs.current.forEach((video) => {
+        if (video) {
+          video.muted = newMute;
+          video.defaultMuted = newMute;
+          video.volume = newMute ? 0 : 1;
+        }
+      });
+      return newMute;
+    });
   }, []);
 
   return (
@@ -506,17 +446,17 @@ function GymReelsArchive() {
       transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
       className="min-h-screen w-full bg-[#f5f6f8] flex flex-col justify-between select-none overflow-x-hidden"
     >
-      {/* Fixed Luxury Navigation Header */}
-      <header className="fixed top-8 left-8 right-8 z-50 flex justify-between items-center pointer-events-none">
+      {/* Minimal Header */}
+      <header className="w-full max-w-[1280px] mx-auto px-8 md:px-24 lg:px-32 pt-8 pb-4 flex justify-between items-center">
         <Link
           href="/"
-          className="pointer-events-auto font-syne text-[11px] font-extrabold tracking-[0.25em] text-[#1c242d] uppercase hover:opacity-75 transition-opacity"
+          className="font-syne text-[11px] font-extrabold tracking-[0.25em] text-[#1c242d] uppercase hover:opacity-75 transition-opacity"
         >
           VERSEFILM
         </Link>
         <Link
           href="/"
-          className="ml-auto flex items-center justify-center border border-black/10 hover:border-black/20 rounded-full p-3 transition-all pointer-events-auto bg-[#f5f6f8]/85 backdrop-blur-md group hover:bg-black/5"
+          className="flex items-center justify-center border border-black/10 hover:border-black/20 rounded-full p-2.5 transition-all bg-[#f5f6f8]/85 backdrop-blur-md group hover:bg-black/5"
         >
           <X className="w-4 h-4 text-black/55 group-hover:text-black transition-transform duration-300 group-hover:rotate-90" />
         </Link>
@@ -525,14 +465,14 @@ function GymReelsArchive() {
       {/* Main Content Layout */}
       <main className="w-full flex-grow flex flex-col items-center">
         {/* Apple-level Centered Typography Section */}
-        <section className="w-full max-w-4xl mx-auto px-6 pt-48 pb-20 text-center flex flex-col items-center justify-center">
+        <section className="w-full max-w-4xl mx-auto px-6 pt-16 pb-20 text-center flex flex-col items-center justify-center">
           <h1 className="font-syne text-[clamp(2.2rem,6.5vw,4.8rem)] font-extrabold tracking-tighter uppercase leading-[0.92] text-[#1c242d] select-none">
             ASCEND<br />PERFORMANCE
           </h1>
           <div className="mt-8 flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-[10px] font-poppins font-bold tracking-[0.25em] text-[#6B7280] uppercase">
             <span>Fitness Campaign</span>
             <span className="hidden sm:inline text-black/15">•</span>
-            <span>15 Reels</span>
+            <span>6 Reels</span>
             <span className="hidden sm:inline text-black/15">•</span>
             <span>2026</span>
           </div>
@@ -547,9 +487,12 @@ function GymReelsArchive() {
                 reel={reel}
                 index={idx}
                 isHovered={hoveredReelIndex === idx}
-                isUnmuted={unmutedReelIndex === idx}
+                isMuted={isMuted}
+                videoRef={(el) => {
+                  videoRefs.current[idx] = el;
+                }}
                 onHoverChange={handleHoverChange}
-                onSoundToggle={handleSoundToggle}
+                onMuteToggle={handleMuteToggle}
               />
             ))}
           </div>
@@ -596,27 +539,27 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       className="min-h-screen w-full bg-[#f5f6f8] flex flex-col justify-between select-none overflow-x-hidden will-change-transform will-change-opacity"
     >
-      {/* Top Floating Header */}
-      <div className="fixed top-6 left-6 right-6 z-50 flex justify-between items-center pointer-events-none">
+      {/* Minimal Header */}
+      <header className="w-full max-w-7xl mx-auto px-6 md:px-14 pt-8 pb-4 flex justify-between items-center">
         <Link
           href="/"
-          className="pointer-events-auto font-syne text-[11px] font-extrabold tracking-[0.25em] text-[#1c242d] uppercase hover:opacity-70 transition-opacity"
+          className="font-syne text-[11px] font-extrabold tracking-[0.25em] text-[#1c242d] uppercase hover:opacity-70 transition-opacity"
         >
           VERSEFILM
         </Link>
         <Link
           href="/"
-          className="ml-auto flex items-center justify-center border border-black/10 hover:border-black/20 rounded-full p-3 transition-all pointer-events-auto bg-[#f5f6f8]/85 backdrop-blur-md group hover:bg-black/5"
+          className="flex items-center justify-center border border-black/10 hover:border-black/20 rounded-full p-2.5 transition-all bg-[#f5f6f8]/85 backdrop-blur-md group hover:bg-black/5"
         >
           <X className="w-4 h-4 text-black/55 group-hover:text-black" />
         </Link>
-      </div>
+      </header>
 
       {/* Main Container */}
       <div className="w-full flex-grow flex flex-col items-center">
         
         {/* SECTION 1: HERO CONTAINER */}
-        <div className="w-full max-w-7xl mx-auto px-6 md:px-14 pt-32 pb-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="w-full max-w-7xl mx-auto px-6 md:px-14 pt-12 pb-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
           {/* Left Column (Meta, Title, Description, CTA) */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">

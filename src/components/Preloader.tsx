@@ -73,7 +73,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 w-full h-[100dvh] bg-[#f5f6f8] z-[99999] flex flex-col justify-between p-6 md:p-14 select-none lg:cursor-none"
+      className="fixed inset-0 w-full h-[100dvh] bg-[#f5f6f8] z-[99999] flex flex-col justify-between p-6 md:p-14 select-none"
       style={{
         clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
         willChange: 'clip-path',

@@ -204,8 +204,7 @@ export default function Navbar({ isHidden }: { isHidden?: boolean }) {
                 setIsMenuOpen(false);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="font-syne text-[11px] font-extrabold tracking-[0.25em] text-[#1c242d] uppercase lg:cursor-none w-full text-left bg-transparent border-none p-0 outline-none cursor-none"
-              data-cursor="Home"
+              className="font-syne text-[11px] font-extrabold tracking-[0.25em] text-[#1c242d] uppercase w-full text-left bg-transparent border-none p-0 outline-none"
             >
               VERSEFLIM
             </button>
@@ -217,8 +216,7 @@ export default function Navbar({ isHidden }: { isHidden?: boolean }) {
           <MagneticButton>
             <button
               onClick={() => handleScrollTo('about')}
-              className="font-sans text-[9px] font-semibold uppercase tracking-[0.2em] hover:tracking-[0.24em] text-[#5c6b7d] hover:text-[#1c242d] transition-all duration-500 ease-out lg:cursor-none px-2.5 py-1.5"
-              data-cursor="Studio"
+              className="font-sans text-[9px] font-semibold uppercase tracking-[0.2em] hover:tracking-[0.24em] text-[#5c6b7d] hover:text-[#1c242d] transition-all duration-500 ease-out px-2.5 py-1.5"
             >
               About
             </button>
@@ -226,8 +224,7 @@ export default function Navbar({ isHidden }: { isHidden?: boolean }) {
           <MagneticButton>
             <button
               onClick={() => handleScrollTo('works')}
-              className="font-sans text-[9px] font-semibold uppercase tracking-[0.2em] hover:tracking-[0.24em] text-[#5c6b7d] hover:text-[#1c242d] transition-all duration-500 ease-out lg:cursor-none px-2.5 py-1.5"
-              data-cursor="Works"
+              className="font-sans text-[9px] font-semibold uppercase tracking-[0.2em] hover:tracking-[0.24em] text-[#5c6b7d] hover:text-[#1c242d] transition-all duration-500 ease-out px-2.5 py-1.5"
             >
               Works
             </button>
@@ -235,8 +232,7 @@ export default function Navbar({ isHidden }: { isHidden?: boolean }) {
           <MagneticButton>
             <button
               onClick={() => handleScrollTo('contact')}
-              className="font-sans text-[9px] font-semibold uppercase tracking-[0.2em] hover:tracking-[0.24em] text-[#5c6b7d] hover:text-[#1c242d] transition-all duration-500 ease-out lg:cursor-none px-2.5 py-1.5"
-              data-cursor="Say Hi"
+              className="font-sans text-[9px] font-semibold uppercase tracking-[0.2em] hover:tracking-[0.24em] text-[#5c6b7d] hover:text-[#1c242d] transition-all duration-500 ease-out px-2.5 py-1.5"
             >
               Contact
             </button>
@@ -254,8 +250,7 @@ export default function Navbar({ isHidden }: { isHidden?: boolean }) {
               <MagneticButton>
                 <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="flex items-center justify-center border border-black/10 bg-black/[0.03] hover:bg-black/[0.06] hover:border-black/20 backdrop-blur-md text-[#1c242d] rounded-full p-2.5 transition-all outline-none lg:cursor-none active:scale-[0.95]"
-                  data-cursor={isMenuOpen ? "Close" : "Menu"}
+                  className="flex items-center justify-center border border-black/10 bg-black/[0.03] hover:bg-black/[0.06] hover:border-black/20 backdrop-blur-md text-[#1c242d] rounded-full p-2.5 transition-all outline-none active:scale-[0.95]"
                 >
                   <div className="w-4 h-4 flex flex-col justify-center items-center relative">
                     <motion.span
@@ -313,7 +308,7 @@ export default function Navbar({ isHidden }: { isHidden?: boolean }) {
                   >
                     <button
                       onClick={() => handleMobileLinkClick(item.id)}
-                      className="font-syne text-4xl font-extrabold uppercase tracking-tight text-[#1c242d] hover:text-[#5c6b7d] flex items-baseline gap-4 cursor-none w-full text-left bg-transparent border-none p-0 outline-none"
+                      className="font-syne text-4xl font-extrabold uppercase tracking-tight text-[#1c242d] hover:text-[#5c6b7d] flex items-baseline gap-4 w-full text-left bg-transparent border-none p-0 outline-none"
                     >
                       <span className="font-mono text-xs text-[#1c242d]/35 font-semibold tracking-widest">{item.num}</span>
                       {item.label}
@@ -328,7 +323,7 @@ export default function Navbar({ isHidden }: { isHidden?: boolean }) {
               <div className="grid grid-cols-2 gap-6 w-full">
                 <div>
                   <span className="text-[#1c242d]/35 block mb-1.5 font-semibold">Email</span>
-                  <a href="mailto:studio@verseflim.com" className="font-extrabold text-[#1c242d] cursor-none block">
+                  <a href="mailto:studio@verseflim.com" className="font-extrabold text-[#1c242d] block">
                     studio@verseflim.com
                   </a>
                 </div>

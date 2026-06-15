@@ -128,8 +128,7 @@ export default function SoundToggle() {
   return (
     <button
       onClick={handleToggle}
-      className="flex items-center gap-2.5 px-4 py-2 rounded-full border border-black/10 bg-black/[0.03] backdrop-blur-md text-[#1c242d] font-medium text-[10px] tracking-[0.15em] uppercase transition-all duration-300 hover:border-black/20 hover:bg-black/[0.06] active:scale-[0.98] group lg:cursor-none"
-      data-cursor="Sound"
+      className="flex items-center gap-2.5 px-4 py-2 rounded-full border border-black/10 bg-black/[0.03] backdrop-blur-md text-[#1c242d] font-medium text-[10px] tracking-[0.15em] uppercase transition-all duration-300 hover:border-black/20 hover:bg-black/[0.06] active:scale-[0.98] group"
     >
       <div className="relative w-4 h-4 flex items-center justify-center">
         {isMuted ? (

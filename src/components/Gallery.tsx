@@ -1,10 +1,9 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Volume2, VolumeX } from 'lucide-react';
 
 interface ProjectCardProps {
   p: any;
@@ -13,36 +12,6 @@ interface ProjectCardProps {
 
 function ProjectCard({ p, index }: ProjectCardProps) {
   const router = useRouter();
-  const [isHovered, setIsHovered] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    if (isHovered) {
-      video.muted = isMuted;
-      video.play().catch((err) => {
-        console.error("Playback failed: ", err);
-      });
-    } else {
-      video.pause();
-      // Smooth reset: set back to 0 without jarring transitions
-      video.currentTime = 0;
-    }
-  }, [isHovered]);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = isMuted;
-    }
-  }, [isMuted]);
-
-  const handleSoundToggle = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Avoid triggering navigation to project page
-    setIsMuted((prev) => !prev);
-  };
 
   const handleCardClick = () => {
     router.push(`/works/${p.slug}`);
@@ -51,33 +20,21 @@ function ProjectCard({ p, index }: ProjectCardProps) {
   return (
     <div
       onClick={handleCardClick}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       className="w-full max-w-5xl flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-14 group select-none cursor-pointer transition-all duration-700 ease-out"
     >
-      {/* 16:9 Cinematic Video Slot */}
+      {/* 16:9 Cinematic Image Slot */}
       <div
-        className="w-full md:w-[58%] aspect-[16/9] bg-zinc-950 rounded-[20px] relative overflow-hidden transition-all duration-700 ease-out shadow-sm group-hover:shadow-2xl group-hover:scale-[1.01] group-hover:brightness-[1.03]"
+        className="w-full md:w-[58%] aspect-[16/9] bg-zinc-950 rounded-[20px] relative overflow-hidden transition-all duration-700 ease-out shadow-sm group-hover:shadow-2xl"
         style={{
           boxShadow: '0 25px 55px -15px rgba(28, 36, 45, 0.08)',
         }}
       >
-        {/* Poster Image */}
+        {/* Lazy Loaded Thumbnail Image */}
         <img
           src={p.poster}
           alt={p.title}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out z-0 rounded-[20px] ${isHovered ? 'opacity-0' : 'opacity-80'}`}
-        />
-
-        {/* Video Preview */}
-        <video
-          ref={videoRef}
-          src={p.video}
-          playsInline
-          loop
-          preload="metadata"
-          muted={isMuted}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out z-0 rounded-[20px] ${isHovered ? 'opacity-80' : 'opacity-0'}`}
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.015] group-hover:brightness-[1.03] rounded-[20px]"
         />
 
         {/* Frosted Glass Vignette Overlay */}
@@ -88,20 +45,6 @@ function ProjectCard({ p, index }: ProjectCardProps) {
         <span className="absolute top-4 right-4 w-3 h-3 border-t border-r border-white/20 pointer-events-none group-hover:border-white/40 transition-colors duration-500" />
         <span className="absolute bottom-4 left-4 w-3 h-3 border-b border-l border-white/20 pointer-events-none group-hover:border-white/40 transition-colors duration-500" />
         <span className="absolute bottom-4 right-4 w-3 h-3 border-b border-r border-white/20 pointer-events-none group-hover:border-white/40 transition-colors duration-500" />
-
-        {/* Elegant Sound Toggle Button */}
-        {isHovered && (
-          <button
-            onClick={handleSoundToggle}
-            className="absolute bottom-4 right-4 z-20 w-8 h-8 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 active:scale-95"
-          >
-            {isMuted ? (
-              <VolumeX className="w-3.5 h-3.5 text-white/80" />
-            ) : (
-              <Volume2 className="w-3.5 h-3.5 text-white" />
-            )}
-          </button>
-        )}
 
         {/* Slide number */}
         <span className="absolute top-5 left-5 font-syne text-[10px] font-bold text-white/40 tracking-[0.2em] z-10">

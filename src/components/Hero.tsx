@@ -157,8 +157,7 @@ export default function Hero({ active }: HeroProps) {
                 const element = document.getElementById('works');
                 if (element) element.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="group flex items-center gap-3.5 pb-1.5 lg:cursor-none text-[11px] tracking-[0.2em] hover:tracking-[0.23em] font-bold uppercase text-[#090d16] transition-all duration-500 ease-out relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-[#090d16] group-hover:after:w-full after:transition-all after:duration-500 after:ease-out"
-              data-cursor="Discover"
+              className="group flex items-center gap-3.5 pb-1.5 text-[11px] tracking-[0.2em] hover:tracking-[0.23em] font-bold uppercase text-[#090d16] transition-all duration-500 ease-out relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-[#090d16] group-hover:after:w-full after:transition-all after:duration-500 after:ease-out"
             >
               Explore Showcase
               <span className="inline-block transform group-hover:translate-x-2 transition-transform duration-500 ease-out">

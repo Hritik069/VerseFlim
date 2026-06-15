@@ -69,12 +69,6 @@ html.lenis, html.lenis body {
   will-change: transform, opacity;
 }
 
-/* Custom Cursor Hide */
-@media (pointer: fine) {
-  html, body, * {
-    cursor: none !important;
-  }
-}
 
 /* Cinematic GPU-Accelerated Noise / Film Grain Animation */
 @keyframes noise {
