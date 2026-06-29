@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { ArrowUp } from 'lucide-react';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -9,55 +8,59 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
   const bgImageRef = useRef<HTMLDivElement>(null);
-  const elementsRef = useRef<HTMLDivElement>(null);
 
-  const handleScrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+  const handleScrollToContact = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const lenis = (window as any).lenis;
+    if (lenis) {
+      lenis.scrollTo('#contact');
+    } else {
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const bgImage = bgImageRef.current;
     const footer = footerRef.current;
-    const elements = elementsRef.current;
-    if (!footer || !bgImage) return;
+    const bgImage = bgImageRef.current;
+    if (!footer) return;
 
     const ctx = gsap.context(() => {
       // 1. Subtle parallax on the mountain background
-      gsap.fromTo(
-        bgImage,
-        { yPercent: -5 },
-        {
-          yPercent: 5,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: footer,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true,
-          },
-        }
-      );
-
-      // 2. Luxury fade on scroll for the elements container
-      if (elements) {
+      if (bgImage) {
         gsap.fromTo(
-          elements,
-          { opacity: 0.1, y: 30 },
+          bgImage,
+          { yPercent: -8 },
+          {
+            yPercent: 8,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: footer,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: true,
+            },
+          }
+        );
+      }
+
+      // 2. Entrance animation when entering the viewport
+      const elementsToAnimate = footer.querySelectorAll('.footer-animate-item');
+      if (elementsToAnimate.length > 0) {
+        gsap.fromTo(
+          elementsToAnimate,
+          { opacity: 0, y: 40 },
           {
             opacity: 1,
             y: 0,
-            duration: 1.2,
+            duration: 0.8,
+            stagger: 0.12,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: footer,
-              start: 'top 80%',
-              end: 'top 35%',
-              scrub: 0.8,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
             },
           }
         );
@@ -69,151 +72,154 @@ export default function Footer() {
     };
   }, []);
 
+  const linkStyle =
+    "group relative inline-block text-white/60 hover:text-white transition-all duration-300 ease-out hover:translate-x-[3px] font-poppins text-xs md:text-sm font-light w-fit pb-1";
+  const underlineStyle =
+    "absolute bottom-0 left-0 w-0 h-[1px] bg-white transition-all duration-300 ease-out group-hover:w-full";
+
   return (
     <footer
       ref={footerRef}
       id="contact"
-      className="relative w-full min-h-screen py-16 md:py-24 bg-[#0a0d14] border-t border-white/[0.03] flex flex-col justify-between p-6 md:p-16 z-20 select-none overflow-hidden text-[#e2e8f0] antialiased"
+      className="relative w-full min-h-[700px] lg:min-h-[850px] py-24 md:py-32 bg-black flex flex-col justify-between p-6 md:p-16 z-20 select-none overflow-hidden text-white antialiased"
     >
-      {/* Background Mountain Image Layer (with subtle parallax and bottom dark blending) */}
-      <div ref={bgImageRef} className="absolute inset-0 z-0 pointer-events-none will-change-transform scale-105">
+      {/* Background Artwork Layer */}
+      <div
+        ref={bgImageRef}
+        className="absolute inset-0 z-0 pointer-events-none will-change-transform scale-110"
+      >
         <Image
           src="/images/ChatGPT Image Jun 13, 2026, 07_50_21 PM.png"
           alt="VERSEFILM Mountain Footer"
           fill
           priority
           sizes="100vw"
-          className="object-cover opacity-85"
+          className="object-cover opacity-50 grayscale contrast-125"
         />
-        {/* Soft cold blue-grey gradient overlays to unify color tone and contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0d14] via-transparent to-transparent opacity-90" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(15,23,42,0.15)_0%,transparent_100%)] mix-blend-color-dodge" />
+        {/* Darker gradient from bottom and subtle vignette */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent z-[1]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0)_20%,rgba(0,0,0,0.85)_100%)] z-[2]" />
+        {/* Subtle cinematic grain overlay */}
+        <div 
+          className="absolute inset-0 opacity-[0.035] mix-blend-overlay pointer-events-none bg-[url('data:image/svg+xml,%3Csvg_viewBox=%220_0_250_250%22_xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter_id=%22noise%22%3E%3CfeTurbulence_type=%22fractalNoise%22_baseFrequency=%220.75%22_numOctaves=%223%22_stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect_width=%22100%25%22_height=%22100%25%22_filter=%22url(%23noise)%22/%3E%3C/svg%3E')] z-[3]"
+        />
       </div>
 
-      {/* Subtle dark overlay behind the content only */}
-      <div 
-        className="absolute inset-0 z-[5] pointer-events-none"
-        style={{
-          backgroundImage: 'linear-gradient(to bottom, rgba(0,0,0,0.08), rgba(0,0,0,0.18))'
-        }}
-      />
-
       {/* Grid Elements Container */}
-      <div ref={elementsRef} className="relative z-10 w-full max-w-7xl mx-auto flex-grow flex flex-col justify-between gap-16 md:gap-24">
+      <div className="relative z-10 w-full max-w-7xl mx-auto flex-grow flex flex-col justify-between gap-16 md:gap-24">
         
-        {/* Top Editorial Row */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 w-full pt-4">
+        {/* Top Area: Label and Statement */}
+        <div className="footer-animate-item flex flex-col gap-4 text-left pt-4">
+          <span className="font-poppins text-[10px] tracking-[0.25em] text-white/50 uppercase font-medium">
+            VERSEFLIM STUDIO
+          </span>
+          <h2 className="font-syne text-[clamp(1.8rem,4.5vw,3.8rem)] font-extrabold uppercase leading-[1.05] tracking-tight text-white select-none">
+            Every frame deserves intention.<br />
+            Every story deserves emotion.
+          </h2>
+        </div>
+
+        {/* Main Footer Layout (4 Columns) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 w-full mt-8">
           
-          {/* Left Micro Copy */}
-          <div className="md:col-span-5 flex flex-col items-start gap-5">
-            <span 
-              className="font-mono text-[8px] tracking-[0.25em] text-[rgba(255,255,255,0.82)] uppercase"
-              style={{ textShadow: '0 0 12px rgba(255,255,255,0.04)' }}
-            >
-              03 / STUDIO PROTOCOL
+          {/* Column 1: Studio */}
+          <div className="footer-animate-item flex flex-col gap-5 text-left">
+            <span className="font-poppins text-[10px] tracking-[0.25em] text-white/50 uppercase font-medium">
+              Studio
             </span>
-            <div 
-              className="flex flex-col gap-1.5 font-mono text-[9px] tracking-[0.18em] leading-relaxed text-[rgba(255,255,255,0.82)] uppercase"
-              style={{ textShadow: '0 0 12px rgba(255,255,255,0.04)' }}
-            >
-              <p>VERSEFILM was born from visual storytelling,</p>
-              <p>not as a trend,</p>
-              <p>but as a pursuit of timeless cinema.</p>
+            <div className="font-poppins text-[13px] md:text-sm leading-relaxed text-white/85 font-light space-y-4">
+              <p className="whitespace-pre-line">Creative Product &{"\n"}Lifestyle Photographer</p>
+              <p>Based in India</p>
+              <p>Available Worldwide</p>
             </div>
-            <span 
-              className="font-mono text-[8px] tracking-[0.25em] text-[rgba(255,255,255,0.82)] font-bold mt-2"
-              style={{ textShadow: '0 0 12px rgba(255,255,255,0.04)' }}
-            >
-              [ STUDIO_PROTOCOL_01 ]
-            </span>
           </div>
 
-          {/* Center Micro Copy/Tags */}
-          <div 
-            className="md:col-span-3 flex flex-col items-start gap-4 font-mono text-[8px] tracking-[0.25em] text-[rgba(255,255,255,0.82)] font-bold"
-            style={{ textShadow: '0 0 12px rgba(255,255,255,0.04)' }}
-          >
-            <span className="hover:text-white transition-colors duration-300 pointer-events-auto">[ CINEMA_LAB ]</span>
-            <span className="hover:text-white transition-colors duration-300 pointer-events-auto">[ FRAME_SYSTEM ]</span>
-            <span className="hover:text-white transition-colors duration-300 pointer-events-auto">[ VISUAL_ARCHIVE_01 ]</span>
+          {/* Column 2: Connect */}
+          <div className="footer-animate-item flex flex-col gap-5 text-left">
+            <span className="font-poppins text-[10px] tracking-[0.25em] text-white/50 uppercase font-medium">
+              Connect
+            </span>
+            <div className="flex flex-col gap-3.5 items-start">
+              <a
+                href="https://www.instagram.com/versefilmss?utm_source=qr&igsh=MW52aDZ1NWJtMWVtOA=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkStyle}
+              >
+                Instagram
+                <span className={underlineStyle} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/r-a-v-i-kumar-09721335a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkStyle}
+              >
+                LinkedIn
+                <span className={underlineStyle} />
+              </a>
+              <a
+                href="https://www.behance.net/plladium"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkStyle}
+              >
+                Behance
+                <span className={underlineStyle} />
+              </a>
+              <a
+                href="mailto:ravioffi6@gmail.com"
+                className={linkStyle}
+              >
+                Email
+                <span className={underlineStyle} />
+              </a>
+            </div>
           </div>
 
-          {/* Right Micro Copy */}
-          <div 
-            className="md:col-span-4 flex flex-col md:items-end gap-3 text-left md:text-right font-mono text-[9px] tracking-[0.2em] leading-relaxed text-[rgba(255,255,255,0.82)] uppercase"
-            style={{ textShadow: '0 0 12px rgba(255,255,255,0.04)' }}
-          >
-            <span className="font-mono text-[8px] tracking-[0.25em] uppercase mb-1">
-              [ PHILOSOPHY ]
+          {/* Column 3: Services */}
+          <div className="footer-animate-item flex flex-col gap-5 text-left">
+            <span className="font-poppins text-[10px] tracking-[0.25em] text-white/50 uppercase font-medium">
+              Services
             </span>
-            <p>FOR THOSE WHO</p>
-            <p>SEE BEFORE</p>
-            <p>THEY SHOOT.</p>
+            <div className="font-poppins text-[13px] md:text-sm leading-relaxed text-white/85 font-light space-y-3.5">
+              <p>Commercial Photography</p>
+              <p>Lifestyle Photography</p>
+              <p>Fitness Campaigns</p>
+              <p>Creative Direction</p>
+              <p>Post Production</p>
+            </div>
+          </div>
+
+          {/* Column 4: Availability */}
+          <div className="footer-animate-item flex flex-col gap-5 text-left items-start">
+            <span className="font-poppins text-[10px] tracking-[0.25em] text-white/50 uppercase font-medium">
+              Availability
+            </span>
+            <div className="flex flex-col gap-4 items-start w-full">
+              <p className="font-poppins text-[13px] md:text-sm leading-relaxed text-white/85 font-light max-w-[280px]">
+                Currently accepting selected collaborations for brands, agencies and creative campaigns.
+              </p>
+              <button
+                onClick={handleScrollToContact}
+                className="mt-2 px-5 py-2.5 border border-white/10 hover:border-white text-white font-poppins text-[10px] md:text-[11px] uppercase tracking-wider transition-all duration-300 ease-out hover:bg-white hover:text-black flex items-center gap-2 group cursor-pointer"
+              >
+                Start a Project
+                <span className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-1">→</span>
+              </button>
+            </div>
           </div>
 
         </div>
 
-        {/* Bottom Hero & Barcode Row */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end w-full mt-auto">
-          
-          {/* Huge Statement */}
-          <div className="md:col-span-8 flex flex-col items-start">
-            <h2 className="font-syne text-[clamp(1.8rem,5.6vw,5rem)] font-extrabold uppercase leading-[0.95] tracking-tighter text-white select-none">
-              CRAFTED IN SILENCE<br />
-              BUILT TO MOVE<br />
-              DESIGNED TO LAST
-            </h2>
+        {/* Bottom Divider and Copyright Row */}
+        <div className="footer-animate-item w-full flex flex-col gap-8 mt-auto">
+          <div className="w-full h-[1px] bg-white/[0.08]" />
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] tracking-[0.2em] font-poppins text-white/40 uppercase font-medium w-full">
+            <div>© 2026 VERSEFLIM</div>
+            <div className="normal-case tracking-normal italic opacity-60">Crafted with intention.</div>
+            <div>Designed & Developed by VERSEFLIM</div>
           </div>
-
-          {/* Back to Top & Copyright */}
-          <div className="md:col-span-4 flex flex-col md:items-end gap-6">
-            
-            {/* Custom generated barcode */}
-            <div className="flex items-stretch h-7 gap-[1.5px] opacity-40 hover:opacity-75 transition-opacity duration-500 ease-out" title="VERSEFILM CODE">
-              <div className="w-[1px] bg-[#e2e8f0]" />
-              <div className="w-[2px] bg-[#e2e8f0]" />
-              <div className="w-[1px] bg-transparent" />
-              <div className="w-[1px] bg-[#e2e8f0]" />
-              <div className="w-[3px] bg-[#e2e8f0]" />
-              <div className="w-[2px] bg-transparent" />
-              <div className="w-[1px] bg-[#e2e8f0]" />
-              <div className="w-[1px] bg-transparent" />
-              <div className="w-[2px] bg-[#e2e8f0]" />
-              <div className="w-[4px] bg-[#e2e8f0]" />
-              <div className="w-[1px] bg-transparent" />
-              <div className="w-[1px] bg-[#e2e8f0]" />
-              <div className="w-[2px] bg-[#e2e8f0]" />
-              <div className="w-[3px] bg-transparent" />
-              <div className="w-[1px] bg-[#e2e8f0]" />
-              <div className="w-[1px] bg-[#e2e8f0]" />
-            </div>
-
-            {/* Copyright & Action Button */}
-            <div 
-              className="flex flex-col md:items-end gap-4 font-mono text-[8px] tracking-[0.2em] font-semibold text-[rgba(255,255,255,0.82)] uppercase text-left md:text-right"
-              style={{ textShadow: '0 0 12px rgba(255,255,255,0.04)' }}
-            >
-              <span>[ EDITORIAL_PROTOCOL ]</span>
-              <div className="flex flex-col gap-1 font-bold">
-                <span>© 2026 VERSEFILM</span>
-                <span>ALL RIGHTS RESERVED</span>
-              </div>
-              
-              {/* Back to Top */}
-              <button
-                onClick={handleScrollToTop}
-                className="flex items-center gap-2 border border-white/10 hover:border-white/20 rounded-full px-4 py-1.5 transition-all duration-500 bg-white/[0.02] hover:bg-white/[0.06] group text-[#e2e8f0] pointer-events-auto"
-              >
-                <span>Back to Top</span>
-                <ArrowUp 
-                  className="w-2.5 h-2.5 text-[rgba(255,255,255,0.82)] group-hover:text-white transform group-hover:-translate-y-0.5 transition-transform duration-500" 
-                  style={{ textShadow: '0 0 12px rgba(255,255,255,0.04)' }}
-                />
-              </button>
-            </div>
-
-          </div>
-
         </div>
 
       </div>

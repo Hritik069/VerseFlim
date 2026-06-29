@@ -107,6 +107,21 @@ export default function Gallery({ activeProject, setActiveProject }: GalleryProp
     },
     {
       id: 2,
+      title: 'ELEVATE APPAREL',
+      category: 'Fashion Campaign',
+      meta: '2026 / CLOTHING / EDITORIAL',
+      year: '2026',
+      role: 'Creative Direction / Photography / Editing',
+      desc: "A contemporary clothing campaign focused on movement, texture and modern silhouettes, blending editorial storytelling with commercial fashion imagery.",
+      aspect: '16:9',
+      duration: '1m 24s',
+      color: 'from-zinc-200/40 via-[#eaeaea]/50 to-zinc-300/40',
+      slug: 'elevate-apparel',
+      video: 'https://assets.mixkit.co/videos/preview/mixkit-fashion-woman-with-silver-makeup-40409-large.mp4',
+      poster: 'https://res.cloudinary.com/dsvedhehi/image/upload/v1782749321/IMG_20240403_190046_278_a381nc.webp',
+    },
+    {
+      id: 3,
       title: 'THE FROZEN APEX',
       category: 'Documentary Short',
       meta: '2026 / DOCUMENTARY / SHORT',
@@ -121,7 +136,7 @@ export default function Gallery({ activeProject, setActiveProject }: GalleryProp
       poster: '/images/verse_film_mountain.png',
     },
     {
-      id: 3,
+      id: 4,
       title: 'CHRONICLES OF DUST',
       category: 'Narrative Short',
       meta: '2026 / NARRATIVE / SHORT',
@@ -149,7 +164,7 @@ export default function Gallery({ activeProject, setActiveProject }: GalleryProp
           scrollContainerRef.current,
           { translateX: 0 },
           {
-            translateX: '-300vw',
+            translateX: '-400vw',
             ease: 'none',
             scrollTrigger: {
               trigger: triggerRef.current,
@@ -193,10 +208,10 @@ export default function Gallery({ activeProject, setActiveProject }: GalleryProp
 
   return (
     <div id="works" ref={triggerRef} className="relative z-20">
-      <div className="h-auto lg:h-[400vh] relative">
+      <div className="h-auto lg:h-[500vh] relative">
         <div
           ref={scrollContainerRef}
-          className="w-full lg:w-[400vw] h-auto lg:h-screen flex flex-col lg:flex-row items-stretch lg:items-center overflow-visible lg:overflow-hidden bg-[#f5f6f8]"
+          className="w-full lg:w-[500vw] h-auto lg:h-screen flex flex-col lg:flex-row items-stretch lg:items-center overflow-visible lg:overflow-hidden bg-[#f5f6f8]"
           style={{ willChange: 'transform' }}
         >
           {/* Slide 1: Section Title */}
